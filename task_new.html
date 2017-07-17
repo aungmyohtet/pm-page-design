@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-tagsinput.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-tagsinput.js"></script>
+    <script src="js/bootstrap3-typeahead.min.js"></script>
+
+    
+
+    <link rel="stylesheet" href="application.css" />
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Organization Name</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Boards</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Members</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="pm-title-container">
+            <h4>Project Name</h4>
+        </div>
+        <hr/>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Tasks</a></li>
+            <li><a href="#">Members</a></li>
+            <li><a href="#">Gantt</a></li>
+        </ul>
+
+        <h4 class="pm-header-container-middle">Create a new task</h4>
+        <form class="form-horizontal" action="#" method="post">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Title">Title:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Start Date">Start Date:</label>
+                <div class="col-sm-6">
+                    <input type="date" class="form-control" id="star-date" name="startDate">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="End Date">End Date:</label>
+                <div class="col-sm-6">
+                    <input type="date" class="form-control" id="star-date" name="endDate">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Assignees">Assignees:</label>
+                <div class="col-sm-6 pm-tagsinput-container" id="pm-asssignees-container">
+                    <input type="text" class="form-control" id="assignees" name="assignees" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Tags">Tags:</label>
+                <div class="col-sm-6 pm-tagsinput-container" id="pm-tags-container">
+                    <input type="text" class="form-control" id="tags" name="tags" data-provide="typeahead" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    </div>
+
+</body>
+<script>
+    $(function () {
+        $("#tags").tagsinput({
+            typeahead: {
+                minLength: 0,
+                showHintOnFocus: "all",
+                afterSelect: function (val) {
+                    this.$element.val("");
+                    console.log("afterSelect");
+                    console.log($("#tags").val());
+                },
+                source: ["Java", "Javascript", "Html", "Css", "React", "Angular", "Webpack", "ES6", "Bootstrap", "NodeJs", "Grunt", "Sails"]
+            }
+        });
+        var elt = $("#tags").tagsinput('input');
+        elt.on('click', function () {
+            elt.typeahead("lookup", "");
+        });
+    });
+
+</script>
+
+</html>
