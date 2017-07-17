@@ -41,35 +41,34 @@
                     <li><a href="#">Members</a></li>
                     <li><a href="#">Gantt</a></li>
                 </ul>
+                <h4 style="margin-top: 20px"> Task title </h4>
 
-                <form class="form-inline" style="margin-top: 10px;margin-bottom: 10px;">
-                    <div class="form-group">
-                        <label for="NameOrDescription">Name or Description:</label>
-                        <input type="text" class="form-control" id="nameOrDescription" name="nameOrDescription">
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">aungmyohtet commented 5 days ago.</div>
+                        <div class="panel-body">
+                            This is comment line1 <br/> This si comment line2
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="timePeriod">Time Period:</label>
-                        <input type="date" class="form-control" id="startDate">
-                        <input type="date" class="form-control" id="endDate">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">aungmyohtet commented 5 days ago.</div>
+                        <div class="panel-body">
+                            This is comment line1 <br/> This is comment line2
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Apply Filter</button>
-                    <a href="/projects/new" class="btn btn-success pull-right">Create a new task</a>
-                </form>
-
-
-                <div class="table">
-                    <table class="table table-striped">
-                        <tr>
-                            <td> <a href="#">Task 1</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">Task 1</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">Task 1</a></td>
-                        </tr>
-                    </table>
                 </div>
+
+                <form>
+                    <div class="form-group">
+                        <label for="comment">Your Comment:</label>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary pull-right">Comment</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
