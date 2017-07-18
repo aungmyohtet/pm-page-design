@@ -42,12 +42,13 @@
                 ],
                 eventClick: function (event) {
                     console.log(event.start.format());
-                    $('#eventFormModal').modal('show');
                     $("#modal-title").text("Event Details");
                     $("#name").val(event.title);
                     $("#start-date").val(event.start.format("YYYY-MM-DD"));
                     $("#end-date").val(event.end.format("YYYY-MM-DD"));
                     $("#event-form-button").val("Save");
+                    $('#eventFormModal').modal('show');
+
                 },
 
                 dayClick: function (date, jsEvent, view) {
@@ -55,11 +56,12 @@
                     console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
                     console.log('Current view: ' + view.name);
                     //$(this).css('background-color', 'red');
-                    $('#eventFormModal').modal('show');
                     $("#modal-title").text("Create a new event");
                     $("#start-date").val(date.format());
                     $("#end-date").val(date.format());
                     $("#event-form-button").val("Create");
+                    $('#eventFormModal').modal('show');
+
                 }
             });
         });
@@ -93,7 +95,7 @@
 
 
 <!-- Modal -->
-<div class="modal" id="eventFormModal" role="dialog">
+<div class="modal" style="position:absolute" id="eventFormModal" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
